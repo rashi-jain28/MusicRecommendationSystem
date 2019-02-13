@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cloud Computing For Data Analysis</title>
+	<link rel="shortcut icon" href="icon.ico">
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Main CSS -->
+    <link href="creative.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" style="background-color:#000000" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Project Report</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">Introduction</a>
+                    </li>
+					<li>
+                        <a class="page-scroll" href="#data">Dataset</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#algorithms">Implementation</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#results">Results</a>
+                    </li>
+					<li>
+                        <a class="page-scroll" href="#team">Team Members</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+			<br><br><br>
+			<br><br>
+                <h1 id="homeHeading" style="font-family:courier;"	 >Music Recommendation System using PySpark</h1>
+                <hr>
+				<h2><b> ITCS 6190 - Cloud Computing for Data Analysis </b></h2>
+				<hr>
+                <h2><b>Team Members</b></h2>
+				<p><b>Barjatya, Shaily (801054460)<br/>Jain, Rashi (801046743)<br/>Mundra, Kratika (801045012)<br/>Taneja, Priyanka (801046756)</b></p>
+                <h3><b>under the guidance of</b></h3>
+                <p>Prof. Srinivas Akella</p>
+				<br/><br/>
+			</div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Overview</h2>
+					  <hr class="primary">
+                    <hr class="light">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p style="text-align:justify">
+					Recommender systems have become a very important part of the retail, social networking, and entertainment industries. 
+Recommender systems have become a very important part of the retail, social networking, and entertainment industries.  From suggesting books for you to read, providing advice on songs for you to try, suggesting books for you to read, or finding clothes to buy, recommender systems have greatly improved the ability of customers to make choices more easily. So based on the previous activity and ratings provided by users new recommendations were provided. These recommendations are useful in a way because users may make unplanned purchases by looking at the recommendations which would increase the rate of purchase.
+					<br/><br/>
+					</p>
+					
+					<h3 align="center">Importance of this project</h3>
+					  <hr class="primary">
+					
+					<p style="text-align:justify">We are planning to have recommender system that will recommend new tracks and  artists to a user, based on their listening history.  This topic seems interesting to us as suggesting different songs or musical artists to a user is important to many music streaming services, such as Spotify, Amazon music and Yahoo Music.  Such systems also bring revenue to the company and improves user-experience which in turn creates a higher likelihood to convert them as a premium member.
+					</p>
+                    
+                    <h3 align="center">Framework</h3>
+					  <hr class="primary">
+					
+					<p style="text-align:justify">
+					<b>Technologies Used : </b>Apache Spark, Python, Cloudera<br><br>
+					<b>Libraries Used: </b>Numpy and Pandas for Preprocessing
+					</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bg-primary" id="data">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Dataset</h2>
+                    <hr class="light">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+            <div class="row">
+                 <div class="col-lg-12">
+                    <div>
+                        <p style="text-align:justify">The dataset is obtained from <a style="color:#FFFFFF"  href="https://www.dtic.upf.edu/~ocelma/MusicRecommendationDataset/" target="_blank"><b>Last.fm</b></a> <br><br> userid-timestamp-artid-artname-traid-traname.tsv:<br>
+
+     <b>Dataset Size(rows):</b>           3 million(2.35GB)<br>
+     <b>Unique Users: </b>            991<br><br>
+
+The following attributes are present in the raw dataset: userID, timestamp,artist id, artist name, track id and track name. <br><br>This file is then pre-processed to determine the number of times the track has been played(playCount) by each user.
+Here the playCount is implicit in nature, as it is not normalized, highly variant and can be biased as well. To overcome this, we have changed playCount into an explicit rating on scale of 1 to 5. This processed dataset is then used to develop and implement our algorithms. </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>   
+    
+	 <section class="bg-primary" id="data">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Preprocessing</h2>
+                    <hr class="light">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+            <div class="row">
+                 <div class="col-lg-12">
+                    <div>
+                        <p style="text-align:justify">
+Since the raw dataset is noisy and contains NA values, so the following steps are performed to preprocess the data and only those attributes are 
+considered which will be used in the recommendation system.
+
+<li>Removing the extra columns like timestamp, artist id</li>
+<li> Removing the non-ascii characters present in the dataset </li>
+<li>Dropping records with NA value </li>
+<li>Combining song name with the artist name</li>
+<li>Counting the tracks played by a specific user based on the trackID </li>
+<li><b>Implicit to Explicit Conversion</b>: The dataset had user id and the tracks. Therefore, we first counted the number of tracks listened by each user. This count can be considered as the implicit rating. Then to convert it to explicit, we applied binning for the count column(number of times a track has been played) based on each user. Thus the rating from 1 to 5 was assigned according to the data given for each user.</li>
+<br><br>
+Raw Data Snapshot:<br>
+<img height="20%" width="90%" src="raw.png" />
+
+<br><br>
+
+<br><br>
+Here is what Preprocessed data looks like:<br><br>
+<img src="preprocessed.png"/>
+</p>
+			
+				
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>   
+	
+    <section id="algorithms">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Implementation</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3><b>kNN using Cosine Similarity Algorithm</b></h3>
+                        <p class="text-muted" style="text-align:justify">
+						We have build our recommendation system based on two algorithms. <br/><br/>
+                        First is implementation of kNN using cosine similarity approach. k Nearest Neighbor algorithm is a very basic common approach for implementing the recommendation system. In k Nearest Neighbors, we try to find the most similar k number of users as nearest neighbors to a given user, and predict ratings of the user for a given track according to the information of the selected neighbors. Cosine Similarity is the measure of calculating the difference of angle between two vectors. For similarity calculation, cosine of two non zero vectors can be derived by using the Euclidean dot product formula.<br/>
+						
+						<img height="30%" width="40%" src="cosine.png"/><br/><br/>
+                        where,<br/>
+                        Ai and Bi are components of vector A and B respectively.
+                            <br/>
+							
+							<br>
+							Further we calculated top k similar users
+This top K similar users is our neighborhood matrix.
+The UserID for which we have to predict is given as an argument, and based on his K neighbors we recommend top 5 tracks.
+We use aggregate function to calculate the ratings. <br>
+<img height="30%" width="40%" src="knn_agg.png"/><br>
+The top 5 predictions are outputted.
+                        </p>
+                </div> 
+                <div class="col-lg-12">
+                    <h3><b>Alternating Least Squares algorithm</b></h3>
+                        <p class="text-muted" style="text-align:justify">We performed content based collaborative filtering using Alternating Least Squares, where when a user likes a particular item(in our case, track; and liking is based on number of times a track is played), other similar item is recommended to the user. It uses a matrix where n users give ratings to m items. The matrix will be a sparse matrix. The algorithm tries to fill out empty values and converge the matrix using formula: <br/><br/><b>f(U,M)=∑(i,j)wi,j(ri,j−ui×mj)2+λ(∑inui||ui||2+∑jnmj||mj||2)</b><br/><br/>
+                        Collaborative Filtering is based on relationship between user and items, where only some kind of rating is required. There are two kinds of data available for this type of interaction: explicit and implicit.<br/><br/>
+                        1. Explicit: A score, such as a rating or a like.<br/><br/>
+                        2. Implicit: Not as obvious in terms of preference, such as a click, view, or purchase.<br/><br/>
+                        In collaborative filtering using matrix factorization we can gather information on how users and items are connected. It is generally applied for dimensionality reduction.<br/>
+						<img height="20%" width="50%" src="als.png"><br/>
+						<br/></p>
+                </div>               
+            </div>
+        </div>
+    </section>
+    
+    
+     <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Accomplishments</h2>
+                    <hr class="light">
+                 </div>
+             </div>
+         </div>
+         <div class="container">
+         	<div class="row">
+                    <div class="col-lg-12">
+                    <p class="text-faded text-left" style="text-align:justify">
+                    <br/>
+						We were successfully able to develop the recommender system using:<br>
+						<li>Alernating Least Square approach and collaborative filtering </li><br>
+						<li> k-Nearest Neighbor using cosine similarity approach</li><br>
+					<li>We used RMSE for performan measurements and also run kNN model with different k values to measure accuracy of the system.</li><br>
+
+         
+                    </p>
+                    <p class="text-faded text-left" style="text-align:justify">
+                    </p>
+                 </div>
+            </div>
+        </div>
+    </section>
+	<section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Challenges</h2>
+                    <hr class="light">
+					<p class="text-faded text-left" style="text-align:justify" >
+					We have faced many challenges during the course of this project and also learned a lot while overcoming those.<br><br>
+
+<li style="text-align:justify">Dataset: We first had to determine the explicit rating based on our dataset. As we were not much aware of the algorithms dealing with explicit data, we had to convert it to implicit rating which required alot of efforts.</li><br>
+
+<li style="text-align:justify">ALS without MLlib : Dealing with matrices while implementing ALS gave us a hard time. We also struggled to achieve parallelism for performance improvement while handling computations with spark RDDs.</li><br>
+<li style="text-align:justify">kNN using Item Based Similarity : Learned about different similarity measures and how to recommend tracks on that basis.</li><br>
+<li style="text-align:justify">Execution of the algorithms: Because of limited availablity of memory on DSBA cluster, we were unable to run these algorithm with complete dataset, the algorithm was run with 500k records.   </li><br>
+
+					</p>
+                 </div>
+             </div>
+         </div>
+         <div class="container">
+         	<div class="row">
+                    <div class="col-lg-12">
+                    <p class="text-faded text-left" style="text-align:justify">
+                    <br/>
+					<br>
+
+         
+                    </p>
+                    <p class="text-faded text-left" style="text-align:justify">
+                    </p>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+					
+					
+					
+					<section id="results">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Results &amp; Conclusion</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Alternating Least Squares Algorithm</h3>
+                        <p class="text-muted">
+						We have used the RMSE for performance measurement.
+						Following are the RMSE values obtained for each iterations :
+						<table class="table table-bordered text-center">
+                            <thead>
+                              <tr>
+                               <th class=" text-center">Iteration 1</th>
+                               <th class=" text-center">Iteration 2</th>
+							   <th class=" text-center">Iteration 3</th>
+							   <th class=" text-center">Iteration 4</th>
+							   <th class=" text-center">Iteration 5</th>
+							   <th class=" text-center">Iteration 6</th>
+							   <th class=" text-center">Iteration 7</th>
+							   <th class=" text-center">Iteration 8</th>
+							   <th class=" text-center">Iteration 9</th>
+							   <th class=" text-center">Iteration 10</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>0.228</td>
+								<td>0.138</td>
+								<td>0.118</td>
+								<td>0.115</td>
+								<td>0.113</td>
+								<td>0.112</td>
+								<td>0.111</td>
+								<td>0.110</td>
+								<td>0.110</td>
+								<td>0.110</td>
+                                
+                               </tr>
+                              
+                            </tbody>
+                          </table>
+						
+						Average RMSE: 0.1269
+						
+						<br><br><b>Output For ALS Algorithm:</b><br><br>
+						<img height="20%" src="alsOutput.png"/>
+                         <br><br>
+                       
+                        </p>
+
+                </div> 
+            </div>
+         </div>
+         
+         <div class="container">
+             <div class="row">
+                <div class="col-lg-12">
+                    <h3>k-Nearest Neighbors using Cosine Similarity Algorithm</h3>
+                        <p class="text-muted">
+						We can select the number of neighbors for the Neighborhood matrix, more neighbors give less error. We run a loop starting at 10 to 130 with a step size of 10 to see how many neighbors gave us the lowest RMSE. <br>RMSE value of Cosine similarity with different neighbors are as follows:<br>
+                        </p><table class="table table-bordered text-center">
+                            <thead>
+                              <tr>
+                                <th class="col-xs-6 text-center">k Values</th>
+                                <th class="col-xs-6 text-center">RMSE Values</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>20</td>
+                                <td>0.31140046684271067</td>
+                               </tr>
+                              <tr>
+                                <td>30</td>
+                                <td>0.31140046684271</td>
+                                 </tr>
+                                 <tr>
+                                <td>70</td>
+                                <td>0.31140046684271017</td>
+                               </tr>
+							   <tr>
+                                <td>90</td>
+                                <td>0.31140046684271067</td>
+                               </tr>
+							   <tr>
+                                <td>110</td>
+                                <td>0.31140046684271067</td>
+                               </tr>
+                               
+                            </tbody>
+                          </table>
+						  As shown in the table above, we can see that there is very minute difference in the RMSE values as we increase the nearest neighbors.
+						  <p>
+						  </p>
+                         <br><br><b>Output For k-Nearest Neighbors Algorithm:</b><br>
+						
+						 <br>
+						 
+						<img width="90%" height="100px" src="knn.png"/>
+                         <br><br>
+						 
+                       </p>
+                </div>               
+            </div>
+        </div>
+    </section>
+	
+	
+	<section id="results">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Validating the Correctness of Algorithms</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Alternating Least Squares  Algorithm</h3>
+					<p>
+                        <br>
+						  Genre of Recommended song "Sound of Muzak by Porcupine Tree": <b> Metallic, Pop </b>
+						 <br><br>
+						  <img width="50%" height="30%" src="som.png"/>
+						 <br><br>
+						On comparing we found that the user listens to majority of songs which are of genre "POP" and the track he was recomended is also of same genre as shown below.
+						 <br><br>
+						 <img width="50%" height="30%" src="als_rc.png"/>
+                        </p>
+
+                </div> 
+            </div>
+         </div>
+         
+         <div class="container">
+             <div class="row">
+                <div class="col-lg-12">
+                    <h3>k-Nearest Neighbors using Cosine Similarity Algorithm</h3>
+                        <p class="text-muted">
+						
+                         <br><br>
+						  Genre of Recommended song "Lady by Modjo": <b> Pop</b>
+						 <br><br>
+						  <img width="50%" height="30%" src="modjo.png"/>
+						 <br><br>
+                         <br>
+						  
+						  <img width="50%" height="30%" src="knn_ev.png"/>
+						  <br><br>
+						  On comparing we found that the user listens to majority of songs which are of genre "POP" and the track he was recomended is also of same genre as shown below.
+						 <br><br>
+						  <img width="50%" height="30%" src="rc.png"/>
+                       </p>
+                </div>               
+            </div>
+        </div>
+    </section>
+    
+      <section class="bg-primary" id="comments">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">References</h2>
+                    <hr class="light">
+                </div>
+                <p class="text-faded text-hleft">
+                    [1] Dataset Reference: <a class="text-faded text-hleft" href = "https://www.dtic.upf.edu/~ocelma/MusicRecommendationDataset/" target="_blank">Data Set</a><br/>
+                    [2] Learning pyspark: <a class="text-faded text-hleft" href = "https://www.datacamp.com/courses/recommendation-engines-in-pyspark" target="_blank">Learning pyspark</a><br/>
+                    [3] Panopto recordings for ALS, Cosine Similarity Algorithm and kNN algorithm<br/>
+                    [4] <a class="text-faded text-hleft" href = "https://jessesw.com/Rec-System/" target="_blank">Recommendation Systems </a><br/>
+                    [5] <a class="text-faded text-hleft" href = "http://cs.carleton.edu/cs_comps/0910/netflixprize/final_results/knn/index.html" target="_blank">kNN  </a><br/>
+					[6]<a class="text-faded text-hleft" href = "https://jessesw.com/Rec-System/" target="_blank">https://jessesw.com/Rec-System/ </a><br/>	
+					[7]<a class="text-faded text-hleft" href=" http://guidetodatamining.com/assets/guideChapters/DataMining-ch3.pdf" target="_blank"> 
+					http://guidetodatamining.com/assets/guideChapters/DataMining-ch3.pdf</a><br/>	
+					[8]<a class="text-faded text-hleft" href=" http://www.benfrederickson.com/distance-metrics/" target="_blank"> 
+					http://www.benfrederickson.com/distance-metrics/</a><br/>		
+					
+                </p>
+            </div>
+         </div>
+    
+     </section>
+                    
+    <section id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Team and their Responsibilities</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+					<p><b>Barjatya, Shaily</b><br/> 
+					<li>Implementation of Cosine Similarity Algorithm.</li><br/>
+                    <li>By using the complete dataset, building the recommender model.</li><br/>
+					<li>Project report development. </li><br/></p>
+					<hr class="primary">
+                    <p><b>Jain, Rashi</b><br/>
+                    <li>Implementation of Cosine Similarity Algorithm.</li><br/>
+					<li>Execution of the model on DSBA cluster.</li><br/>
+                    <li>Performance evaluation of the recommended model.</li><br/>	
+					</p>  
+					<hr class="primary">
+					<p><b>Mundra, Kratika</b><br/>
+                    <li>Data Extraction and Manipulation</li><br/>
+					<li>Implementation of Alternating Least Squares algorithm</li><br/>
+					<li>Testing the results of the recommendations using testing data set</li><br></p>
+                    <hr class="primary">
+					<p><b>Taneja, Priyanka</b><br/>
+                    <li>Data Extraction and Manipulation</li><br/>
+					<li>Implementation of Alternating Least Squares algorithm</li><br/>
+					<li>Converting Implicit Rating to Explicit</li><br/>
+                    <br/></p>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <!-- jQuery -->
+    <script src="jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+   
+               
+    </body>
+</html>
+
